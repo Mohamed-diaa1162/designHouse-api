@@ -3,6 +3,9 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Auth\Access\AuthorizationException;
+
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -38,4 +41,21 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    // public function render($request, Throwable $e)
+    // {
+    //     if ($e instanceof ModelNotFoundException && $request->expectsJson()) {
+    //         return response()->json([
+    //             'errors' => [
+    //                 'message' => 'This Image dosen\'t exsits'
+    //             ]
+    //         ], 404);
+    //     }
+
+    //     if ($e instanceof AuthorizationException && $request->expectsJson()) {
+    //         return response()->json(['errors' => [
+    //             'Massage' => 'You not have access to do this resource'
+    //         ]], 403);
+    //     }
+    // }
 }
